@@ -43,7 +43,7 @@ function statement(invoice, plays) {
     return result;
   }
 
-  function whatever() {
+  function totalAmount() {
     let result = 0;
     for (let perf of invoice.performances) {
       result += amountfor(perf);
@@ -68,7 +68,7 @@ function statement(invoice, plays) {
     } seats)\n`;
   }
 
-  result += `Amount owed is ${usd(whatever())}\n`;
+  result += `Amount owed is ${usd(totalAmount())}\n`;
   result += `You earned ${totalVolumeCredits()} credits\n`;
   return result;
 }
