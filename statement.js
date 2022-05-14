@@ -44,11 +44,11 @@ function statement(invoice, plays) {
   }
 
   function whatever() {
-    let totalAmount = 0;
+    let result = 0;
     for (let perf of invoice.performances) {
-      totalAmount += amountfor(perf);
+      result += amountfor(perf);
     }
-    return totalAmount;
+    return result;
   }
 
   function usd(aNumber) {
