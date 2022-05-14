@@ -49,7 +49,8 @@ function statement(invoice, plays) {
 
   for (let perf of invoice.performances) {
     volumeCredits += volumeCreditsFor(perf);
-
+  }
+  for (let perf of invoice.performances) {
     // 印出這筆訂單
     result += `  ${playFor(perf).name}: ${usd(amountfor(perf))} (${
       perf.audience
