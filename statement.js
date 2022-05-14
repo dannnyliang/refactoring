@@ -27,6 +27,13 @@ function statement(invoice, plays) {
     return result;
   }
 
+  function volumeCreditsFor(perf) {
+    let volumeCredits = 0;
+    volumeCredits += Math.max(perf.audience - 30, 0);
+    if ("comedy" === playFor(perf).type) volumeCredits += Math.floor(perf.audience / 5);
+    return volumeCredits;
+  }
+
   let totalAmount = 0;
   let volumeCredits = 0;
   let result = `Statement for ${invoice.customer}\n`;
@@ -37,10 +44,7 @@ function statement(invoice, plays) {
   }).format;
 
   for (let perf of invoice.performances) {
-    // 加入volume credit
-    volumeCredits += Math.max(perf.audience - 30, 0);
-    // 每十名匿劇觀眾可獲纜額外點數
-    if ("comedy" === playFor(perf).type) volumeCredits += Math.floor(perf.audience / 5);
+    volumeCredits += volumeCreditsFor(perf);
 
     // 印出這筆訂單
     result += `  ${playFor(perf).name}: ${format(amountfor(perf) / 100)} (${
