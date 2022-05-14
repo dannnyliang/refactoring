@@ -6,7 +6,12 @@ function statement(invoice, plays) {
 
   function ennchPerformance(aPerformance) {
     const result = Object.assign({}, aPerformance);
+    result.play = playFor(result);
     return result;
+  }
+
+  function playFor(aPerformance) {
+    return plays[aPerformance.playID];
   }
 }
 
