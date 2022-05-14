@@ -37,6 +37,10 @@ class PerformanceCalculator {
   }
 }
 
+function createPerformanceCalculator(aPerformance, aPlay) {
+  return new PerformanceCalculator(aPerformance, aPlay);
+}
+
 function createStatementData(invoice, plays) {
   const result = {};
   result.customer = invoice.customer;
@@ -46,7 +50,7 @@ function createStatementData(invoice, plays) {
   return result;
 
   function ennchPerformance(aPerformance) {
-    const calculator = new PerformanceCalculator(
+    const calculator = createPerformanceCalculator(
       aPerformance,
       playFor(aPerformance)
     );
