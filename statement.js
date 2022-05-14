@@ -37,16 +37,15 @@ function statement(invoice, plays) {
   }).format;
 
   for (let perf of invoice.performances) {
-    const play = playFor(perf);
-    let thisAmount = amountfor(perf, play);
+    let thisAmount = amountfor(perf, playFor(perf));
 
     // 加入volume credit
     volumeCredits += Math.max(perf.audience - 30, 0);
     // 每十名匿劇觀眾可獲纜額外點數
-    if ("comedy" === play.type) volumeCredits += Math.floor(perf.audience / 5);
+    if ("comedy" === playFor(perf).type) volumeCredits += Math.floor(perf.audience / 5);
 
     // 印出這筆訂單
-    result += `  ${play.name}: ${format(thisAmount / 100)} (${
+    result += `  ${playFor(perf).name}: ${format(thisAmount / 100)} (${
       perf.audience
     } seats)\n`;
     totalAmount += thisAmount;
