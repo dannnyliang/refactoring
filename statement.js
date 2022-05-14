@@ -1,4 +1,21 @@
 function statement(invoice, plays) {
+  return renderPlainText(invoice, plays);
+}
+
+function renderPlainText(invoice, plays) {
+  let result = `Statement for ${invoice.customer}\n`;
+
+  for (let perf of invoice.performances) {
+    // 印出這筆訂單
+    result += `  ${playFor(perf).name}: ${usd(amountfor(perf))} (${
+      perf.audience
+    } seats)\n`;
+  }
+
+  result += `Amount owed is ${usd(totalAmount())}\n`;
+  result += `You earned ${totalVolumeCredits()} credits\n`;
+  return result;
+
   function playFor(aPerformance) {
     return plays[aPerformance.playID];
   }
@@ -58,19 +75,6 @@ function statement(invoice, plays) {
       minimumFractionDigits: 2,
     }).format(aNumber / 100);
   }
-
-  let result = `Statement for ${invoice.customer}\n`;
-
-  for (let perf of invoice.performances) {
-    // 印出這筆訂單
-    result += `  ${playFor(perf).name}: ${usd(amountfor(perf))} (${
-      perf.audience
-    } seats)\n`;
-  }
-
-  result += `Amount owed is ${usd(totalAmount())}\n`;
-  result += `You earned ${totalVolumeCredits()} credits\n`;
-  return result;
 }
 
 module.exports = { statement };
