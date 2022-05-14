@@ -66,9 +66,8 @@ function statement(invoice, plays) {
       perf.audience
     } seats)\n`;
   }
-  let totalAmount = whatever();
 
-  result += `Amount owed is ${usd(totalAmount)}\n`;
+  result += `Amount owed is ${usd(whatever())}\n`;
   result += `You earned ${totalVolumeCredits()} credits\n`;
   return result;
 }
