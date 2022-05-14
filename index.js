@@ -1,4 +1,4 @@
-const { statement } = require("./statementGenerator");
+const { statement } = require("./statement");
 const play = require("./fixture/play.json");
 const invoices = require("./fixture/invoices.json");
 
