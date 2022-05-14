@@ -58,6 +58,8 @@ function statement(invoice, plays) {
     result += `  ${playFor(perf).name}: ${usd(amountfor(perf))} (${
       perf.audience
     } seats)\n`;
+  }
+  for (let perf of invoice.performances) {
     totalAmount += amountfor(perf);
   }
 
