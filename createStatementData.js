@@ -44,17 +44,13 @@ function createStatementData(invoice, plays) {
     );
     const result = Object.assign({}, aPerformance);
     result.play = calculator.play;
-    result.amount = amountfor(result);
+    result.amount = calculator.amount;
     result.volumeCredits = volumeCreditsFor(result);
     return result;
   }
 
   function playFor(aPerformance) {
     return plays[aPerformance.playID];
-  }
-
-  function amountfor(aPerformance) {
-    return new PerformanceCalculator(aPerformance, playFor(aPerformance)).amount;
   }
 
   function volumeCreditsFor(aPerformance) {
