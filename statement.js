@@ -40,6 +40,7 @@ function statement(invoice, plays) {
     for (let perf of invoice.performances) {
       volumeCredits += volumeCreditsFor(perf);
     }
+    return volumeCredits;
   }
 
   function whatever() {
