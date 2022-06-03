@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "git@github.com:dannnyliang/refactoring-notes.git",
   "author": "dannnyliang <youchenliang@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^28.1.0"
+  }
 }
